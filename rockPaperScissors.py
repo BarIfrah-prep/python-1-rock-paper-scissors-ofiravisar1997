@@ -36,6 +36,10 @@ PAPER(2) vs ROCK(1)      --> PAPER(2) wins
 DO NOT ADD EXTRA OPTIONS (No lizard, no Spock.)
 """
 
+gameIsOn = True
+userWinsCount = 0
+computerWinsCount = 0
+continueRequest = False
 # print the instructions for the user to see:
 print("GAME RULES: \n"
       "ROCK(1) vs SCISSORS(3)   --> ROCK(1) wins\n"
@@ -44,10 +48,74 @@ print("GAME RULES: \n"
 
 # The game will run in a WHILE loop.
 # The loop is infinite, and only the user has the power to stop it (when they say they don't want to play anymore)
-while True:
-    """
-      This is the game's heart. You'll need to think and use everything we've learned so far to make this game work.
-      Remember Python's rules ( the ':' after a statement, the indentation with loops and statements..)
-      
-      """
-    pass
+while gameIsOn:
+    if continueRequest == False:
+        userChoice = int(input("Choose Your Choice Rock(1),Paper(2),Scissors(3)"))
+
+        # User Choice is Invalid
+        if userChoice > 3 or userChoice == 0:
+            print("Not a valid Choice.\n Choose again!")
+            userChoice = int(input("Choose Your Choice Rock(1),Paper(2),Scissors(3)"))
+        else:
+            # User Choice Is Valid
+            computerChoice = random.randint(1, 3)
+
+            # User Choice Rock
+            if userChoice == 1 and computerChoice == 3:
+                print("Computer choice: Scissors")
+                print("Your choice: Rock \nYou won!")
+                userWinsCount += 1
+                print(f"Your wins count is {userWinsCount}")
+            elif userChoice == 1 and computerChoice == 2:
+                print("Computer choice: Paper")
+                print("Your choice: Rock \nYou lost!")
+                computerWinsCount += 1
+                print(f"Computer wins count is {computerWinsCount}")
+            elif userChoice == 1 and computerChoice == 1:
+                print("You both choose rock its draw!")
+
+            # User Choice Scissors
+
+            if userChoice == 3 and computerChoice == 2:
+                print("Computer choice: Paper")
+                print("Your choice: Scissors \nYou won!")
+                userWinsCount += 1
+                print(f"Your wins count is {userWinsCount}")
+            elif userChoice == 3 and computerChoice == 1:
+                print("Computer choice: Rock")
+                print("Your choice: Scissors \nYou lost!")
+                computerWinsCount += 1
+                print(f"Computer wins count is {computerWinsCount}")
+            elif userChoice == 3 and computerChoice == 3:
+                print("You both choose Scissors its draw!")
+
+            # User Choice Paper
+
+            if userChoice == 2 and computerChoice == 1:
+                print("Computer choice: Rock")
+                print("Your choice: Paper \nYou won!")
+                userWinsCount += 1
+                print(f"Your wins count is {userWinsCount}")
+            elif userChoice == 2 and computerChoice == 3:
+                print("Computer choice: Scissors")
+                print("Your choice: Paper \nYou lost!")
+                computerWinsCount += 1
+                print(f"Computer wins count is {computerWinsCount}")
+            elif userChoice == 2 and computerChoice == 2:
+                print("You both choose paper its draw!")
+
+        continueAnswer = input("Wanna continue ? y/n")
+        continueRequest = True
+
+        while continueRequest:
+            if continueAnswer == "n":
+                print("Thanks for playing !")
+                gameIsOn = False
+                continueRequest = False
+            elif continueAnswer == "y":
+                print("Lets continue the game!")
+                continueRequest = False
+            else:
+                print("Invalid answer!")
+                continueAnswer = input("Wanna continue ? y/n")
+
