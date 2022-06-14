@@ -39,7 +39,8 @@ DO NOT ADD EXTRA OPTIONS (No lizard, no Spock.)
 gameIsOn = True
 userWinsCount = 0
 computerWinsCount = 0
-continueRequest = False
+userName = input("Welcome to the game ! please enter your name ?")
+print(f"Hello {userName}")
 # print the instructions for the user to see:
 print("GAME RULES: \n"
       "ROCK(1) vs SCISSORS(3)   --> ROCK(1) wins\n"
@@ -49,16 +50,17 @@ print("GAME RULES: \n"
 # The game will run in a WHILE loop.
 # The loop is infinite, and only the user has the power to stop it (when they say they don't want to play anymore)
 while gameIsOn:
-    if continueRequest == False:
-        userChoice = int(input("Choose Your Choice Rock(1),Paper(2),Scissors(3)"))
+        userChoice = input("Choose Your Choice Rock(1),Paper(2),Scissors(3)")
+
+        while userChoice != "1" and userChoice != "2" and userChoice != "3":
 
         # User Choice is Invalid
-        if userChoice > 3 or userChoice == 0:
             print("Not a valid Choice.\n Choose again!")
-            userChoice = int(input("Choose Your Choice Rock(1),Paper(2),Scissors(3)"))
+            userChoice = input("Choose Your Choice Rock(1),Paper(2),Scissors(3)")
         else:
             # User Choice Is Valid
             computerChoice = random.randint(1, 3)
+            userChoice = int(userChoice)
 
             # User Choice Rock
             if userChoice == 1 and computerChoice == 3:
@@ -108,11 +110,11 @@ while gameIsOn:
         continueRequest = True
 
         while continueRequest:
-            if continueAnswer == "n":
+            if continueAnswer.lower() == "n":
                 print("Thanks for playing !")
                 gameIsOn = False
                 continueRequest = False
-            elif continueAnswer == "y":
+            elif continueAnswer.lower() == "y":
                 print("Lets continue the game!")
                 continueRequest = False
             else:
