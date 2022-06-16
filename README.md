@@ -6,19 +6,24 @@ where all of your program information (how to run, what is the input/output, and
 I'll give you a template this time, but from here on you'll need to manage this by yourselves. Good luck!
 
 # Rock Paper Scissors!
-this if a fun game of childhood game rock paper and scissors  **REPLACE THE ABOVE LINE OBVIOUSLY**
+this if a fun game of childhood game rock paper and scissors the goal is to win as many rounds as you can
 
 ## Who's submitting?
-NAME: ofiravi@edu.hac.ac.il
-ofir avisar
+Email: ofiravi@edu.hac.ac.il
+Name: ofir avisar
 
 ## Code input\output\ how to run
 What is the input of this code?\
-The input should be 1 for Rock 2 for Paper 3 for Scissors
+Your name at start
+1 for Rock 2 for Paper 3 for Scissors
 and y or n for continue or stop the game
 What is the output of this code?\
 who wins the game and the wins count of the computer and the user
 What do I need to do to run it?\
+open the code with pycharm and click the start button
 Give one or two examples of input and output.
+1."You won 3 times"
+2."Choose your Choice Rock(1),Paper(2),Scissors(3)" 1
+3."Thanks for Playing"
 
 ### This is it! Your assignement instructions are attached in the repository. Good luck!
